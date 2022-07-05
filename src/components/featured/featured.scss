@@ -43,6 +43,14 @@
     display: flex;
     flex-direction: column;
 
+    .contentTitle{
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+    }
+
     img {
       width: 40vw;
       margin-top: 100px;

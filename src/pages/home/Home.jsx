@@ -19,9 +19,9 @@ const Home = ({ type }) => {
           }`,
           {
             headers: {
-              token:
+              Authorization:
                 "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
+                JSON.parse(localStorage.getItem("user")).token,
             },
           }
         );
