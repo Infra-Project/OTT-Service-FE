@@ -12,24 +12,31 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
+        // console.log(
+        //   `dev.theotters.net/lists${type ? "?type=" + type : ""}${
+        //     genre ? "&genre=" + genre : ""
+        //   }`
+        // );
         const res = await axios.get(
-          // /lists?type=horror&genre=horror
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {
             headers: {
               Authorization:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).token,
+                "Bearer " + JSON.parse(localStorage.getItem("user")).token,
             },
           }
         );
-        setLists(res.data);
+        // console.log("****", res.data.list);
+        // res.data.list.map((list) => console.log("*^*", list.title));
+        setLists(res.data.list);
       } catch (err) {
+        console.log("**** home.jsx error");
         console.log(err);
       }
     };
+
     getRandomLists();
   }, [type, genre]);
 
@@ -38,7 +45,7 @@ const Home = ({ type }) => {
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
-        <List list={list} />
+        <List key={list.id} list={list} />
       ))}
     </div>
   );

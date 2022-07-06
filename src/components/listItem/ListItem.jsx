@@ -16,13 +16,14 @@ export default function ListItem({ index, item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/movies/find/" + item, {
+        const res = await axios.get("/movies/find/" + item.movieId, {
           headers: {
             Authorization:
-            "Bearer "+JSON.parse(localStorage.getItem("user")).token,
+              "Bearer " + JSON.parse(localStorage.getItem("user")).token,
           },
         });
-        setMovie(res.data);
+        console.log("*********", res.data.movie);
+        setMovie(res.data.movie);
       } catch (err) {
         console.log(err);
       }
