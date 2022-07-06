@@ -22,7 +22,7 @@ export default function ListItem({ index, item }) {
               "Bearer " + JSON.parse(localStorage.getItem("user")).token,
           },
         });
-        console.log("*********", res.data.movie);
+        // console.log("*********", res.data.movie);
         setMovie(res.data.movie);
       } catch (err) {
         console.log(err);
@@ -39,7 +39,7 @@ export default function ListItem({ index, item }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={movie?.imgSm} alt="" />
+        <img src={movie?.thumbnail} alt="" />
         {isHovered && (
           <>
             <video src={movie.trailer} autoPlay={true} loop />

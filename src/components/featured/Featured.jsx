@@ -10,7 +10,7 @@ export default function Featured({ type, setGenre }) {
     const getRandomContent = async () => {
       // 무작위 컨텐츠 데이터 가져오기
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+        const res = await axios.get(`/movies/randoms?type=${type}`, {
           headers: {
             Authorization:
               "Bearer " + JSON.parse(localStorage.getItem("user")).token,
@@ -54,15 +54,11 @@ export default function Featured({ type, setGenre }) {
         </div>
       )}
       {/* 큰 화면으로 보이는 무작위 컨텐츠 이미지 */}
-      {/* <img src={content.img} alt="featured content image" /> */}
+      <img src={content.thumbnail} alt="featured content image" />
       <div className="info">
-        <span className="contentTitle">Featured Content Title</span>
-        {/* <span className="contentTitle">{content.title}</span> */}
+        <span className="contentTitle">{content.title}</span>
 
-        <span className="desc">
-          무작위 선정된 피쳐 컨텐츠 소개문이 들어가는 곳{" "}
-        </span>
-        {/* <span className="desc">{content.desc}</span> */}
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
