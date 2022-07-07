@@ -4,6 +4,7 @@ import {
   Add,
   ThumbUpAltOutlined,
   ThumbDownOutlined,
+  Timelapse,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -51,7 +52,9 @@ export default function ListItem({ index, item }) {
                 <ThumbDownOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>{movie.duration}</span>
+                <span> {movie.title} &nbsp; </span> <span> | &nbsp; </span>
+                <Timelapse className="icon" />
+                <span> {movie.duration} </span>
                 <span className="limit">+{movie.limit}</span>
                 <span>{movie.year}</span>
               </div>
