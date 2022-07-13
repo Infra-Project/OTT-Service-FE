@@ -29,7 +29,7 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     // setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/signup", {
+      await axios.post("https://dev.theotters.net/auth/signup", {
         email,
         password: password_,
       });
@@ -72,7 +72,7 @@ export default function Register() {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        {!err ? <p className="listTitleWarning"> Check your inbox. </p> : null}
+        {!err ? <p className="listTitleWarning"> Already registered? Check your inbox. </p> : null}
         {err ? <p className="listTitleWarning">{err}</p> : null}
 
         {!email ? (

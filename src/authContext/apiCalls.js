@@ -4,7 +4,7 @@ import { loginFailure, loginStart, loginSuccess } from "./AuthActions";
 export const login = async (user, dispatch) => {
   try {
     dispatch(loginStart());
-    const res = await axios.post("auth/login", user);
+    const res = await axios.post("https://dev.theotters.net/auth/login", user);
 
     if (res.data.status === true) {
       dispatch(loginSuccess(res.data));

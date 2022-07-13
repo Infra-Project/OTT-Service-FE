@@ -17,7 +17,7 @@ export default function ListItem({ index, item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/movies/find/" + item.movieId, {
+        const res = await axios.get("https://dev.theotters.net/movies/find/" + item.movieId, {
           headers: {
             Authorization:
               "Bearer " + JSON.parse(localStorage.getItem("user")).token,

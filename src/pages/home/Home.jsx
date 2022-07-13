@@ -18,7 +18,7 @@ const Home = ({ type }) => {
         //   }`
         // );
         const res = await axios.get(
-          `lists${type ? "?type=" + type : ""}${
+          `https://dev.theotters.net/lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {
