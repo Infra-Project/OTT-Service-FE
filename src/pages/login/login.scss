@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     ),
-    url("https://i.pinimg.com/236x/05/79/9d/05799d8fdf97c5a29f8be9195688672d.jpg");
+    url("https://play-lh.googleusercontent.com/7vLKSN8QVw5sbTE4Tf3wMOjkDkvrk2a6lCkk5b-4eIHFkwbu8ZQKOTL2JakXV-CrEcQ=w526-h296-rw");
   background-size: cover;
   position: relative;
 
@@ -16,9 +16,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      
 
       .logo {
         height: 40px;
+        
       }
     }
   }
@@ -34,6 +36,7 @@
     align-items: center;
     justify-content: center;
     color: white;
+    opacity: 70%;
 
     form {
       width: 300px;

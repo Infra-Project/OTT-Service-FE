@@ -18,7 +18,7 @@ export default function Login() {
         <div className="wrapper">
           <img
             className="logo"
-            src="C:\Users\82107\Documents\카카오톡 받은 파일.KakaoTalk_20220713_143828710.png"
+            src="https://connectthefrontend.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220713_155413115.png"
             alt=""
           />
         </div>

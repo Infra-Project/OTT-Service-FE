@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container">
         <div className="left">
           <img
-            src="https://connectthefrontend.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220713_143828710.png"
+            src="https://connectthefrontend.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220713_155413115.png"
             alt=""
           />
           <Link to="/" className="link">
@@ -37,10 +37,7 @@ const Navbar = () => {
           <Search className="icon" />
           <span>KID</span>
           <Notifications className="icon" />
-          <img
-            src="https://i.pinimg.com/736x/c2/bf/74/c2bf74d9ef43bf24dcf73cde5a24f61c.jpg"
-            alt=""
-          />
+          <img src="https://i.redd.it/kg9fkv3kcti21.jpg" alt="" />
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">
