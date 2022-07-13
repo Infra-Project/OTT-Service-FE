@@ -11,7 +11,7 @@ export default function Featured({ type, setGenre }) {
     const getRandomContent = async () => {
       // 무작위 컨텐츠 데이터 가져오기
       try {
-        const res = await axios.get(`/movies/randoms?type=${type}`, {
+        const res = await axios.get(`https://dev.theotters.net/movies/randoms?type=${type}`, {
           headers: {
             Authorization:
               "Bearer " + JSON.parse(localStorage.getItem("user")).token,

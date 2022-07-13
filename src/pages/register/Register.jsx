@@ -29,7 +29,7 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     // setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/signup", {
+      await axios.post("https://dev.theotters.net/auth/signup", {
         email,
         password: password_,
       });
