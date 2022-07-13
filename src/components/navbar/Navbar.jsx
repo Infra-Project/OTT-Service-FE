@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container">
         <div className="left">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+            src="https://connectthefrontend.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220713_143828710.png"
             alt=""
           />
           <Link to="/" className="link">
@@ -38,7 +38,7 @@ const Navbar = () => {
           <span>KID</span>
           <Notifications className="icon" />
           <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://i.pinimg.com/736x/c2/bf/74/c2bf74d9ef43bf24dcf73cde5a24f61c.jpg"
             alt=""
           />
           <div className="profile">

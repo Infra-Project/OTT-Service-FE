@@ -18,7 +18,7 @@ export default function Login() {
         <div className="wrapper">
           <img
             className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+            src="C:\Users\82107\Documents\카카오톡 받은 파일.KakaoTalk_20220713_143828710.png"
             alt=""
           />
         </div>

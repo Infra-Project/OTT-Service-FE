@@ -52,7 +52,7 @@ export default function Register() {
         <div className="wrapper">
           <img
             className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+            src="https://connectthefrontend.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220713_143828710.png"
             alt=""
           />
           <button
