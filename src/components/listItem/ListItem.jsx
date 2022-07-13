@@ -17,12 +17,15 @@ export default function ListItem({ index, item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("https://dev.theotters.net/movies/find/" + item.movieId, {
-          headers: {
-            Authorization:
-              "Bearer " + JSON.parse(localStorage.getItem("user")).token,
-          },
-        });
+        const res = await axios.get(
+          "https://dev.theotters.net/movies/find/" + item.movieId,
+          {
+            headers: {
+              Authorization:
+                "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+            },
+          }
+        );
         // console.log("*********", res.data.movie);
         setMovie(res.data.movie);
       } catch (err) {
@@ -36,7 +39,7 @@ export default function ListItem({ index, item }) {
     <Link to={{ pathname: "/watch", movie: movie }}>
       <div
         className="listItem"
-        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+        style={{ left: isHovered && index * 330 - 50 + index * 2.5 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
