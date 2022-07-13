@@ -72,7 +72,7 @@ export default function Register() {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        {!err ? <p className="listTitleWarning"> Check your inbox. </p> : null}
+        {!err ? <p className="listTitleWarning"> Already registered? Check your inbox. </p> : null}
         {err ? <p className="listTitleWarning">{err}</p> : null}
 
         {!email ? (
