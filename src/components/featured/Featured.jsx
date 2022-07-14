@@ -66,15 +66,21 @@ export default function Featured({ type, setGenre }) {
             style={{ textDecoration: "none", color: "white" }}
             to={{ pathname: "/watch", movie: content }}
           >
-            <button className=" play ">
+            <button className="play ">
               <PlayArrow />
               <span>Play</span>
             </button>
           </Link>
-          <button className="more">
+          {/* 컨텐츠 상세 보기 페이지를 만들 경우 링크 연결          
+          <Link
+            style={{ textDecoration: "none" }}
+            to={{ pathname: "/info", movie: content }}
+          >
+            <button className="more">
             <InfoOutlined />
             <span>Info</span>
           </button>
+          </Link> */}
         </div>
       </div>
     </div>

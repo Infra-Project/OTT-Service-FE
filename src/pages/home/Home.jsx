@@ -12,11 +12,6 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        // console.log(
-        //   `dev.theotters.net/lists${type ? "?type=" + type : ""}${
-        //     genre ? "&genre=" + genre : ""
-        //   }`
-        // );
         const res = await axios.get(
           `https://dev.theotters.net/lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""

@@ -5,7 +5,7 @@ import "./watch.scss";
 export default function Watch() {
   const location = useLocation();
   const movie = location.movie;
-  console.log(movie);
+  console.log(" *** 이전 페이지 location? *** ", location);
   return (
     <div className="watch">
       <Link to="/">
