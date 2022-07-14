@@ -36,13 +36,7 @@ export default function Register() {
       history.push("/login");
       setErr(null);
     } catch (err) {
-      if (err.response.status === 422) {
-        err.response.message = "Your email is already registered!";
-        setErr(err.response.message);
-      } else {
-        setErr(err.message);
-        console.log(err);
-      }
+      console.log(err);
     }
   };
 

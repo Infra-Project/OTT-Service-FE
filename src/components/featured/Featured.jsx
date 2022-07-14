@@ -1,12 +1,14 @@
-import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import { DragHandle, InfoOutlined, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./featured.scss";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
-
+  const [signedUrl, setSignedUrl] = useState("");
+  const history = useHistory();
+  
   useEffect(() => {
     const getRandomContent = async () => {
       // 무작위 컨텐츠 데이터 가져오기
@@ -16,17 +18,37 @@ export default function Featured({ type, setGenre }) {
             Authorization:
               "Bearer " + JSON.parse(localStorage.getItem("user")).token,
           },
-        });
-        console.log(res.data.ro);
+        })
         setContent(res.data.ro); // 가져온 데이터를 피쳐 컨텐츠(홈페이지 큰 화면에 들어가는 것)로 설정
       } catch (err) {
         console.log(err);
       }
     };
     getRandomContent();
+
   }, [type]);
 
-  console.log(content);
+  console.log("content ===========> ",content) 
+
+  const handleSigned = async () => {
+    try{
+      const resp  = await axios.get(`https://dev.theotters.net/signedUrl/movies/${content.id}`, {
+        headers: {
+          Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+        }
+      });
+      console.log("*** resp.config.url ***: ", resp);
+      setSignedUrl(resp);
+      console.log("*** signedUrl ***: ", signedUrl);
+      history.push("/Watch");
+    } catch (err) {
+      console.log(err);
+    }
+    
+  };
+
+
   return (
     <div className="featured">
       {type && ( // 분류에서 type 은 영화와 시리즈 둘로 나뉨(movies 아니면 Series로 감)
@@ -71,16 +93,13 @@ export default function Featured({ type, setGenre }) {
               <span>Play</span>
             </button>
           </Link>
-          {/* 컨텐츠 상세 보기 페이지를 만들 경우 링크 연결          
-          <Link
-            style={{ textDecoration: "none" }}
-            to={{ pathname: "/info", movie: content }}
-          >
-            <button className="more">
+       
+          {/* 컨텐츠 상세 보기 페이지를 만들 경우 링크 연결           */}
+          
+            <button className="more" onClick={handleSigned}>
             <InfoOutlined />
             <span>Info</span>
           </button>
-          </Link> */}
         </div>
       </div>
     </div>

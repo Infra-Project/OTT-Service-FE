@@ -46,10 +46,10 @@ export default function Login() {
               <b> Sign up now.</b>
               </Link>
           </span>
-          <small>
+          {/* <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot. <b>Learn more</b>.
-          </small>
+          </small> */}
         </form>
       </div>
     </div>

@@ -13,9 +13,7 @@ const Home = ({ type }) => {
     const getRandomLists = async () => {
       try {
         const res = await axios.get(
-          `https://dev.theotters.net/lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
+          `https://dev.theotters.net/lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
           {
             headers: {
               Authorization:
