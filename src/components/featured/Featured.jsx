@@ -9,7 +9,7 @@ export default function Featured({ type, setGenre }) {
   const [signedUrl, setSignedUrl] = useState("");
   const history = useHistory();
   
-  useEffect(() => {
+  useEffect(async () => {
     const getRandomContent = async () => {
       // 무작위 컨텐츠 데이터 가져오기
       try {
@@ -28,26 +28,23 @@ export default function Featured({ type, setGenre }) {
 
   }, [type]);
 
-  console.log("content ===========> ",content) 
-
-  const handleSigned = async () => {
-    try{
-      const resp  = await axios.get(`https://dev.theotters.net/signedUrl/movies/${content.id}`, {
+  useEffect(async () => {
+    try {
+      const resp  = await axios.get(`https://dev.theotters.net/signedUrl?movieId=${content.id}`, {
         headers: {
           Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+              "Bearer " + JSON.parse(localStorage.getItem("user")).token,
         }
       });
-      console.log("*** resp.config.url ***: ", resp);
-      setSignedUrl(resp);
-      console.log("*** signedUrl ***: ", signedUrl);
-      history.push("/Watch");
+      setSignedUrl(resp.data.signedUrl);
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-    
-  };
+  })
 
+  const onClick = async () => {
+    history.push("/watch", { signedUrl });
+  }
 
   return (
     <div className="featured">
@@ -80,23 +77,14 @@ export default function Featured({ type, setGenre }) {
       <img src={content.thumbnail} alt="featured content image" />
       <div className="info">
         <span className="contentTitle">{content.title}</span>
-
         <span className="desc">{content.desc}</span>
-
         <div className="buttons">
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to={{ pathname: "/watch", movie: content }}
-          >
-            <button className="play ">
+            <button className="play" onClick={onClick}>
               <PlayArrow />
               <span>Play</span>
             </button>
-          </Link>
-       
           {/* 컨텐츠 상세 보기 페이지를 만들 경우 링크 연결           */}
-          
-            <button className="more" onClick={handleSigned}>
+            <button className="more">
             <InfoOutlined />
             <span>Info</span>
           </button>

@@ -4,9 +4,8 @@ import "./watch.scss";
 
 export default function Watch() {
   const location = useLocation();
-  const signedUrl = location.signedUrl;
-  console.log(" *** location *** ", location);
-  console.log(" *** location.signedUrl *** ", location.signedUrl);
+  const signedUrl = location.state.signedUrl;
+  console.log("location *** ",location)
   return (
     <div className="watch">
       <Link to="/">
