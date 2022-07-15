@@ -59,7 +59,16 @@ export default function Featured({ type, setGenre }) {
           <select
             name="genre"
             id="genre"
-            onChange={(e) => setGenre(e.target.value)}
+            onChange={(e) => {
+              if (type == "movie" && e.target.value === "all") {
+                history.go(0);
+              }
+              if (type == "series" && e.target.value === "all") {
+                history.go(0);
+              } else {
+                setGenre(e.target.value);
+              }
+            }}
           >
             <option value="all">All</option>
             <option value="action">Action</option>
