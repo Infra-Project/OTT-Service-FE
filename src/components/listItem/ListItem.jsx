@@ -20,13 +20,13 @@ export default function ListItem({ index, item }) {
     const getMovie = async () => {
       try {
         const res = await axios.get(
-            "https://dev.theotters.net/movies/find/" + item.movieId,
-            {
-              headers: {
-                Authorization:
-                    "Bearer " + JSON.parse(localStorage.getItem("user")).token,
-              },
-            }
+          "https://dev.theotters.net/movies/find/" + item.movieId,
+          {
+            headers: {
+              Authorization:
+                "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+            },
+          }
         );
         // console.log("*********", res.data.movie);
         setMovie(res.data.movie);
@@ -39,24 +39,26 @@ export default function ListItem({ index, item }) {
 
   useEffect(async () => {
     try {
-      const resp  = await axios.get(
-          `https://dev.theotters.net/signedUrl?movieId=${item.movieId}${ movie.isSeries ? "&episodeId="+ item.id : ""}`,{
-            headers: {
-              Authorization:
-                  "Bearer " + JSON.parse(localStorage.getItem("user")).token,
-            }
-          });
+      const resp = await axios.get(
+        `https://dev.theotters.net/signedUrl?movieId=${item.movieId}${
+          "&episodeId=" + item.id
+        }`,
+        {
+          headers: {
+            Authorization:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+          },
+        }
+      );
       setSignedUrl(resp.data.signedUrl);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }, [item])
+  }, [item]);
 
-
-    const onClick = async () => {
-        history.push("/watch", { signedUrl });
-    }
-
+  const onClick = async () => {
+    history.push("/watch", { signedUrl });
+  };
 
   // console.log("*** signedUrl ***: ", signedUrl);
   // console.log("*** movie ***: ", movie);
@@ -64,37 +66,37 @@ export default function ListItem({ index, item }) {
 
   return (
     // <Link to={ { pathname: "/watch", signedUrl: signedUrl } } >
-      <div
-        className="listItem"
-        style={{ left: isHovered && index * 330 - 50 + index * 2.5 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={onClick}
-      >
-        <img src={item?.thumbnail} alt="" />
-        {isHovered && (
-          <>
-            <video src={signedUrl} autoPlay={true} loop />
-            <div className="itemInfo">
-              <div className="icons">
-                <PlayArrow className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
-              </div>
-              <div className="itemInfoTop">
-                <span> {item.title} &nbsp; </span> <span> | &nbsp; </span>
-                <Timelapse className="icon" />
-                <span> {item.duration} </span>
-                <span className="limit">+{movie.limit}</span>
-                <span>{movie.year}</span>
-              </div>
-              <div className="desc">{item.epi_info}</div>
-              <div className="genre">{movie.genre}</div>
+    <div
+      className="listItem"
+      style={{ left: isHovered && index * 330 - 50 + index * 2.5 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
+    >
+      <img src={item?.thumbnail} alt="" />
+      {isHovered && (
+        <>
+          <video src={signedUrl} autoPlay={true} loop />
+          <div className="itemInfo">
+            <div className="icons">
+              <PlayArrow className="icon" />
+              <Add className="icon" />
+              <ThumbUpAltOutlined className="icon" />
+              <ThumbDownOutlined className="icon" />
             </div>
-          </>
-        )}
-      </div>
-     // </Link>
+            <div className="itemInfoTop">
+              <span> {item.title} &nbsp; </span> <span> | &nbsp; </span>
+              <Timelapse className="icon" />
+              <span> {item.duration} </span>
+              <span className="limit">+{movie.limit}</span>
+              <span>{movie.year}</span>
+            </div>
+            <div className="desc">{item.epi_info}</div>
+            <div className="genre">{movie.genre}</div>
+          </div>
+        </>
+      )}
+    </div>
+    // </Link>
   );
 }
