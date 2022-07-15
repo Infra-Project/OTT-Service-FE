@@ -41,10 +41,10 @@ export default function Login() {
             Sign In
           </button>
           <span>
-            New to Netflix? 
+            New to Netflix?
             <Link to="/register" className="link">
               <b> Sign up now.</b>
-              </Link>
+            </Link>
           </span>
           {/* <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
