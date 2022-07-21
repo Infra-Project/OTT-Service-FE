@@ -55,7 +55,7 @@ export default function Featured({ type, setGenre }) {
     <div className="featured">
       {type && ( // 분류에서 type 은 영화와 시리즈 둘로 나뉨(movies 아니면 Series로 감)
         <div className="category">
-          <span>{type === "Movies" ? "Movies" : "Genre"}</span>
+          <span>{type === "movie" ? "Movies" : "Series"}</span>
           <select
             name="genre"
             id="genre"
