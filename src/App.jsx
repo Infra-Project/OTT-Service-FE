@@ -14,6 +14,8 @@ import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
   const { user } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
+  
   return (
     <Router>
       <Switch>
@@ -23,7 +25,7 @@ const App = () => {
         <Route path="/register">
           {!user ? <Register /> : <Redirect to="/" />}
         </Route>
-        <Route path="/login">{!user ? <Login /> : <Redirect to="/" />}</Route>
+        <Route path="/login">{!user ? <Login /> : dispatch(logout())}</Route>
         {user && (
           <>
             <Route path="/movies">
